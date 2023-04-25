@@ -5,7 +5,7 @@ const Head = document.getElementById("Heading");
 var hr = 0;
 var min = 0;
 var sec = 0;
-var mlSec = 0;
+// var mlSec = 0;
 var stoptime = true;
 
 function startTimer() {
@@ -23,7 +23,7 @@ function stopTimer() {
         Head.style.display = "block";
         Head.innerHTML = "Reset To Karle Bhai!!!!";
         IMG.setAttribute("src", "");
-        IMG.setAttribute("width" , "12%")
+        IMG.setAttribute("width", "12%")
     }
 }
 
@@ -31,32 +31,32 @@ function stopTimer() {
 
 function timerCycle() {
     if (stoptime == false) {
-        mlSec = parseInt(mlSec)
+        // mlSec = parseInt(mlSec)
         sec = parseInt(sec);
         min = parseInt(min);
         hr = parseInt(hr);
 
-        mlSec++
+        // mlSec++
 
-        if(mlSec == 100){
-            sec = sec + 1;
-            mlSec = 0
-        }
-        
+        // if(mlSec == 1000){
+        //     sec = sec + 1;
+        //     mlSec = 0
+        // }
 
+        sec++
         if (sec == 60) {
-          min = min + 1;
-          sec = 0;
+            min = min + 1;
+            sec = 0;
         }
         if (min == 60) {
-          hr = hr + 1;
-          min = 0;
-          sec = 0;
+            hr = hr + 1;
+            min = 0;
+            sec = 0;
         }
 
-        if (mlSec < 10) {
-            mlSec = "0" + mlSec;
-        }
+        // if (mlSec < 10) {
+        //     mlSec = "0" + mlSec;
+        // }
         if (sec < 10) {
             sec = "0" + sec;
         }
@@ -68,19 +68,19 @@ function timerCycle() {
         }
 
 
-        Timer.innerHTML = hr + ":" + min + ":" + sec + ":" + mlSec ;
+        Timer.innerHTML = hr + ":" + min + ":" + sec;
 
-        setTimeout("timerCycle()", 10);
+        setTimeout("timerCycle()", 1000);
     }
 }
 
 function resetTimer() {
     Head.style.display = "block";
-        Head.innerHTML = "STOP WATCH";
-    Timer.innerHTML = "00:00:00:00";
+    Head.innerHTML = "STOP WATCH";
+    Timer.innerHTML = "00:00:00";
     stoptime = true;
     hr = 0;
     sec = 0;
     min = 0;
-    mlSec = 0;
+    // mlSec = 0;
 }
